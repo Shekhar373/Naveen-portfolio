@@ -35,7 +35,7 @@ const About = () => {
 
   return (
     <div ref={textRef} className="h-[130vh] w-full relative mt-[20vh]">
-      <div className=" lg:absolute top-0 z-10 flex flex-col max-md:gap-10">
+      <div className=" lg:absolute top-0 z-10 flex flex-col max-md:gap-10 p-5">
         <div className="text-reveal text-2xl lg:text-[5.5vw] lg:leading-[6vw] tracking-tight">
           <h1>
             As a digital designer, I help brands and companies connect with

@@ -11,3 +11,21 @@ body {
     font-family: 'main-font', sans-serif;
     
 }
+
+/* Hide scrollbar but keep scrolling */
+html {
+    scrollbar-width: none;
+  }
+  
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
+  }
