@@ -12,7 +12,7 @@ const Page2 = () => {
 
   useEffect(() => {
     // Defensive: If horizontal is not defined or horizontal.current is null, skip the containerAnimation prop
-    if (!containerRef.current) return;
+    if (!horizontalRef.current) return;
     const split = new SplitText(".page-2-text", {
       type: "chars, words",
       mask: "lines",

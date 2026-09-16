@@ -27,10 +27,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
-        <SmothScroller>
-        {children}
-        </SmothScroller>
-        </body>
+        <SmothScroller>{children}</SmothScroller>
+      </body>
     </html>
   );
 }
