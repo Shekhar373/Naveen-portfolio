@@ -22,7 +22,7 @@ const Footer = () => {
           <h1>Social</h1>
           <div>
             <h1>Instagram</h1>
-            <h1>Linkedin</h1>
+            <h1>Linkedin</h1> 
             <h1>Tweeter</h1>
           </div>
         </div>
