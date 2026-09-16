@@ -46,7 +46,7 @@ const Spiral: React.FC = () => {
     const mouseY = state.pointer.y;
 
     // Subtle movement (reduced strength)
-    const targetX = mouseY * 0.05; // less effect than before
+    const targetX = mouseY * 0.08; // less effect than before
     const targetY = mouseX * 0.06; // less effect than before
 
     // Smooth interpolation

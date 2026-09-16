@@ -9,7 +9,7 @@ const Page1 = () => {
         </h1>
         <div className="w-1/2 h-full flex flex-col justify-between pt-[20vh] pb-5">
           <h1 className="w-[70%] uppercase leading-tight">
-            Artiom is a passionate digital designer based in Yerevan, Armenia.
+            Naveen is a passionate digital designer based in New Delhi, Indian.
           </h1>
           <div>
             <h1 className="uppercase text-zinc-500">For inquiries:</h1>

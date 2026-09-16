@@ -2,38 +2,41 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useHorizontalScrollContext } from "./HorizontalContext";
 
 const Page3 = () => {
+  const {horizontalRef} = useHorizontalScrollContext();
+  const textRef = useRef<HTMLDivElement | null>(null);
+  gsap.registerPlugin(SplitText, ScrollTrigger);
 
-    const textRef = useRef(null);
-//   gsap.registerPlugin(SplitText, ScrollTrigger);
+  useEffect(() => {
+    // Defensive: If horizontal is not defined or horizontal.current is null, skip the containerAnimation prop
+    if (!textRef.current) return;
+    const split = new SplitText(".text-reveal h1", {
+      type: "chars, words",
+      mask: "lines",
+    });
 
-//   useGSAP(() => {
-//     const split = new SplitText(".text-reveal h1", {
-//       type: "chars, words",
-//       mask: "lines",
-//     });
+    gsap.from(split.chars, {
+      opacity: 0,
+      filter: "blur(8px)",
+      stagger: 0.006,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: textRef.current,
+        // Only add containerAnimation if horizontal?.current is not null
+        containerAnimation:horizontalRef.current,
+        start: "left 70%",
+        end: "left -20%",
+        // markers: true,
+        scrub: true,
+      },
+    });
 
-//     gsap.from(split.chars, {
-//       //   y: 80,
-//       opacity: 0,
-//       filter: "blur(15px)",
-//       //   duration: 1.2,
-//       stagger: 0.006,
-//       ease: "power4.out",  
-//       scrollTrigger: {
-//         trigger: textRef.current,
-//         start: "left 50%",
-//         end: "left -40%",
-//         markers: true,
-//         scrub: true,
-   
-//       },
-//     });
-
-//     return () => split.revert();
-//   });
+    return () => split.revert();
+    // eslint-disable-next-line
+  }, [horizontalRef]);
 
   return (
     <div ref={textRef} className="h-[130vh] w-full relative mt-[10vh] p-5">

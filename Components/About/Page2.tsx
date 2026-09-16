@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useHorizontalScrollContext } from "./HorizontalContext";
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 const Page2 = () => {
+
+  const {horizontalRef} = useHorizontalScrollContext();
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  useEffect(() => {
+    // Defensive: If horizontal is not defined or horizontal.current is null, skip the containerAnimation prop
+    if (!containerRef.current) return;
+    const split = new SplitText(".page-2-text", {
+      type: "chars, words",
+      mask: "lines",
+    });
+
+    gsap.from(split.chars, {
+      opacity:0.1,
+      // opacity: 0,
+      // filter: "blur(4px)",
+      stagger: 0.006,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        // Only add containerAnimation if horizontal?.current is not null
+        containerAnimation:horizontalRef.current,
+        start: "left 70%",
+        end: "left -20%",
+        // markers: true,
+        scrub: true,
+      },
+    });
+
+    return () => split.revert();
+    // eslint-disable-next-line
+  }, [horizontalRef]);
+
   return (
-    <div className="bg-black h-screen w-full flex p-5">
+    <div ref={containerRef} className="bg-black h-screen w-full flex p-5">
       <div className="h-full w-[80vw] flex justify-center items-center px-[10vw]">
-        <h1 className="text-3xl">
+        <h1 className="page-2-text text-3xl">
           <span className="pr-20 text-xl">(Value)</span>Today, design plays one of the most important roles in a company’s
           growth. It’s a powerful tool that will help highlight a company’s
           strengths, enhance connections with its audience, increase brand

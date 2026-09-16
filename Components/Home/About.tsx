@@ -17,10 +17,8 @@ const About = () => {
     gsap.from(split.chars, {
       //   y: 80,
       opacity: 0,
-      filter: "blur(12px)",
-      //   duration: 1.2,
+      filter: "blur(8px)",
       stagger: 0.006,
-      ease: "power4.out",  
       scrollTrigger: {
         trigger: textRef.current,
         start: "top 50%",
@@ -29,6 +27,20 @@ const About = () => {
         scrub: true,
       },
     });
+
+    gsap.from(".blur-text h1",{
+      opacity: 0,
+      filter: "blur(12px)",
+      //   duration: 1.2,
+      stagger: 0.006,
+      scrollTrigger: {
+        trigger: textRef.current,
+        start: "top 0%",
+        end: "top -40%",
+        // markers:true,
+        scrub: true,
+      },
+    })
 
     return () => split.revert();
   });
@@ -48,7 +60,7 @@ const About = () => {
             </h1>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 lg:absolute lg:top-[50vh] lg:right-0 lg:pt-[20vh] flex flex-col gap-5">
+        <div className="blur-text w-full lg:w-1/2 lg:absolute lg:top-[50vh] lg:right-0 lg:pt-[20vh] flex flex-col gap-5">
           <h1 className="text-lg lg:pr-[15vw] max-md:leading-tight">
             My name is Naveen. I’m a passionate creative who works closely with
             companies to help them unlock their full potential and solve
