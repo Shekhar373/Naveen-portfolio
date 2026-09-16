@@ -29,3 +29,8 @@ html {
   body::-webkit-scrollbar {
     display: none;
   }
+
+  ::selection{
+    background-color: #AF0C07;
+    color: black;
+  }

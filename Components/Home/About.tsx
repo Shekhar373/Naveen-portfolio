@@ -17,7 +17,7 @@ const About = () => {
     gsap.from(split.chars, {
       //   y: 80,
       opacity: 0,
-      filter: "blur(15px)",
+      filter: "blur(12px)",
       //   duration: 1.2,
       stagger: 0.006,
       ease: "power4.out",  
@@ -50,7 +50,7 @@ const About = () => {
         </div>
         <div className="w-full lg:w-1/2 lg:absolute lg:top-[50vh] lg:right-0 lg:pt-[20vh] flex flex-col gap-5">
           <h1 className="text-lg lg:pr-[15vw] max-md:leading-tight">
-            My name is Artiom. I’m a passionate creative who works closely with
+            My name is Naveen. I’m a passionate creative who works closely with
             companies to help them unlock their full potential and solve
             specific business problems with effective and memorable design
             solutions.
