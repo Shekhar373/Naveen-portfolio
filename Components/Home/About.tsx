@@ -17,7 +17,7 @@ const About = () => {
     gsap.from(split.chars, {
       //   y: 80,
       opacity: 0,
-      filter: "blur(8px)",
+      filter: "blur(12px)",
       stagger: 0.006,
       scrollTrigger: {
         trigger: textRef.current,

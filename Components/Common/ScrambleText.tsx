@@ -25,7 +25,7 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({ children }) => {
     gsap.to(
       {},
       {
-        duration: 1,
+        duration: 0.6,
         ease: "none",
         onUpdate: function () {
           if (!textRef.current) return;
@@ -57,7 +57,7 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({ children }) => {
     <span
       ref={textRef}
       onMouseEnter={scramble}
-      className="inline-block transition-all duration-300 hover:tracking-[0.08em]"
+      className="inline-block"
     >
       {children}
     </span>

@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 h-[10vh] w-full flex items-center justify-between text-white mix-blend-difference z-50 p-5">
       <div>
-        <h1 className="text-xl font-semibold">Naveen Kumaar</h1>
+        <h1 className="text-xl font-semibold tracking-tight">Naveen Kumar</h1>
       </div>
       <div>
         <h1>12:00 AM</h1>
