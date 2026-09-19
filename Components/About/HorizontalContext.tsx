@@ -5,8 +5,7 @@ type HorizontalScrollContextType = {
   horizontalRef: RefObject<gsap.core.Tween | null>;
 };
 
-const HorizontalScrollContext =
-  createContext<HorizontalScrollContextType | null>(null);
+const HorizontalScrollContext = createContext<HorizontalScrollContextType | null>(null);
 
 export const useHorizontalScrollContext = () => {
   const context = useContext(HorizontalScrollContext);

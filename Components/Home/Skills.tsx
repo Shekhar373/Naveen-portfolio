@@ -24,7 +24,7 @@ const Skills = () => {
       scrollTrigger: {
         trigger: textRef.current,
         start: "top 30%",
-        end: "top -50%",
+        end: "top -90%",
         // markers:true,
         scrub: true,
       },

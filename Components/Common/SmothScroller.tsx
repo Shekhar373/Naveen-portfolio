@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useLayoutEffect } from "react";
+import { ReactNode, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
@@ -11,19 +11,33 @@ interface SmothScrollerProps {
   children: ReactNode;
 }
 
-export default function SmothScroller({ children }: SmothScrollerProps) {
-  useLayoutEffect(() => {
-    const smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1,
-      effects: true,
-      smoothTouch: 0.1,
-    });
+// Utility function to determine if device is mobile based on window width
+const isMobile = () => {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(max-width: 767px)").matches;
+};
 
-    return () => {
-      smoother.kill();
-    };
+export default function SmothScroller({ children }: SmothScrollerProps) {
+  const isMobileRef = useRef(false);
+
+  useLayoutEffect(() => {
+    isMobileRef.current = isMobile();
+
+    if (!isMobileRef.current) {
+      const smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.5,
+        effects: true,
+        smoothTouch: 0.1,
+      });
+
+      return () => {
+        smoother.kill();
+      };
+    }
+    // If mobile, do nothing
+    return;
   }, []);
 
   return (
